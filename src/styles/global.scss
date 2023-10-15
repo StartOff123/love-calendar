@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url('../assets/fon.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #ffb6e3;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(253, 107, 151);
+        border-radius: 20px;
+    }
+}
+
+.container {
+    max-width: 1240px;
+    height: 100%;
+    width: calc(100% - 10px);
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
