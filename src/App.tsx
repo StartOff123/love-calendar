@@ -7,7 +7,7 @@ import * as SocketIO from 'socket.io-client'
 
 export const UserContext = React.createContext<IUser | null>(null)
 
-const socket = SocketIO.connect('http://localhost:3001', { transports: ['websocket', 'polling'], autoConnect: false })
+const socket = SocketIO.connect(String(process.env.REACT_APP_SERVER_URL), { transports: ['websocket', 'polling'], autoConnect: false })
 
 const App = (): React.ReactElement => {
   const [user, setUser] = React.useState<IUser | null>(null)
