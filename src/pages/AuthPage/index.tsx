@@ -17,14 +17,16 @@ const AuthPage = ({ setUser }: { setUser: React.Dispatch<React.SetStateAction<IU
 
     const forkik = useFormik({
         initialValues: {
-            username: '',
+            login: '',
             password: ''
         },
         onSubmit: async values => {
             setIsLoading(true)
             api.post('/auth/login', values)
                 .then(response => {
-                    setUser(response.data)
+                    const { access_token, ...data } = response.data
+                    window.localStorage.setItem('access_token', `Bearer ${access_token}`)
+                    setUser(data)
                     setIsLoading(false)
                 })
                 .catch((error) => {
@@ -48,15 +50,15 @@ const AuthPage = ({ setUser }: { setUser: React.Dispatch<React.SetStateAction<IU
                     onFinish={forkik.handleSubmit}
                 >
                     <Form.Item
-                        name="username"
+                        name="login"
                         label={<UserOutlined className="site-form-item-icon" />}
                         rules={[{ required: true, message: 'Пожалуйста заполни это поле', }]}
                     >
                         <Input
-                            name='username'
+                            name='login'
                             className='auth__form-input'
                             placeholder='Логин'
-                            value={forkik.values.username}
+                            value={forkik.values.login}
                             onChange={forkik.handleChange}
                         />
                     </Form.Item>

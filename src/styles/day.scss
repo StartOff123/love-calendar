@@ -20,17 +20,17 @@
     }
 
     &__animate {
-        animation: heart .4s linear;
         display: none;
         fill: #f8bbbb;
         opacity: .5;
         z-index: 0;
+        animation: heartDay .4s linear;
 
         &-active {
             display: block;
         }
 
-        @keyframes heart {
+        @keyframes heartDay {
             0% {
                 transform: translate(-50%, -50%) scale(1);
             }

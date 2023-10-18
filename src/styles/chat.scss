@@ -135,6 +135,8 @@
         }
 
         &--messages {
+            position: relative;
+            width: 100%;
             word-wrap: break-word;
             overflow-y: scroll;
             padding: 10px;
@@ -212,4 +214,14 @@
             }
         }
     }
+}
+
+.ant-empty-description {
+    color: rgb(255, 170, 196) !important;
+    font-size: 16px;
+    font-weight: 600 !important;
+}
+
+.ant-empty-image {
+    height: auto !important;
 }
