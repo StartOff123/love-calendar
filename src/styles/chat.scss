@@ -23,9 +23,82 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5px 0;
+            padding: 10px 0;
             background-color: rgb(255, 170, 196);
             border-radius: 8px 8px 0 0;
+
+            &-user {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &-stats {
+                    font-size: 12px;
+                    color: #a80000;
+                    opacity: .5;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &-typing {
+                    position: relative;
+
+                    p {
+                        margin-right: 10px;
+                        font-size: 12px !important;
+                        color: #a80000;
+                        // opacity: .5;
+                        font-weight: 100 !important;
+                    }
+
+                    span {
+                        position: absolute;
+                        content: '';
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        width: 5px;
+                        height: 5px;
+                        opacity: .5;
+                        border-radius: 50%;
+                        background-color: #a80000;
+                        
+                        &:nth-child(2) {
+                            right: 0px;
+                            animation: typing .6s linear infinite;
+                        }
+
+                        &:nth-child(3) {
+                            right: -7px;
+                            animation: typing .6s linear infinite;
+                            animation-delay: .2s;
+                        }
+
+                        &:nth-child(4) {
+                            right: -14px;
+                            animation: typing .6s linear infinite;
+                            animation-delay: .4s;
+                        }
+
+                        @keyframes typing {
+                            0% {
+                                transform: translate(0, -50%) scale(1);
+                                opacity: .5;
+                            }
+                            50% {
+                                transform: translate(0, -50%) scale(1.1);
+                                opacity: 1;
+                            }
+                            100% {
+                                transform: translate(0, -50%) scale(1);
+                                opacity: .5;
+                            }
+                        }
+                    }
+                }
+            }
 
             &-btn {
                 position: absolute;
@@ -110,7 +183,7 @@
             }
 
             p {
-                margin-right: 10px;
+                // margin-right: 10px;
                 font-size: 16px;
                 font-weight: 600;
                 color: #a80000;
@@ -141,7 +214,8 @@
             overflow-y: scroll;
             padding: 10px;
             box-shadow: inset 0 0 10px rgba($color: #000000, $alpha: .1);
-            background-color: #ffd9f0;
+            background: url('../assets/fonChat.png');
+            background-size: cover;
 
             &::-webkit-scrollbar {
                 width: 5px;
