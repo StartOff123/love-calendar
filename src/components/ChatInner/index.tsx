@@ -121,7 +121,7 @@ const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
     return (
         <>
             <div className='chat__wrapper--header'>
-                <button className='chat__wrapper--header-btn' onClick={() => setShow(!show)}>Закрыть</button>
+                <button className='chat__wrapper--header-btn' onClick={() => setShow(!show)}>{size[0] < 500 ? 'X' : 'Закрыть'}</button>
                 <div ref={loveDiv} className='chat__wrapper--header-love'>
                     <img className='chat__wrapper--header-love-icon' src="/assets/icon/heartHeader.png" alt="icon" onClick={handleClickHeart} />
                 </div>
