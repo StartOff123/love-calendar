@@ -57,7 +57,7 @@ const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMm
                 <p>{content}</p>
                 <span>{moment(createdAt).format('LT')}</span>
                 {user?.id === userId ?
-                    viewedMessage ? <CheckAll width={20} hanging={20} /> : <Check width={20} hanging={20} /> : ''
+                    viewedMessage ? <CheckAll width={20} height={20} /> : <Check width={20} height={20} /> : ''
                 }
             </div>
         </div>
