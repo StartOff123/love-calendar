@@ -147,6 +147,7 @@
                     height: 200px;
                     transform: translate(0, -50%);
                     animation: heart 2s linear infinite;
+                    z-index: 100;
 
                     @keyframes heart {
                         0% {
