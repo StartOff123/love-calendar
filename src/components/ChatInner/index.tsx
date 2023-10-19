@@ -18,6 +18,19 @@ interface IUserChat {
     lastOnline: string
 }
 
+function useWindowSize() {
+    const [size, setSize] = React.useState([0, 0])
+    React.useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight])
+        }
+        window.addEventListener('resize', updateSize)
+        updateSize()
+        return () => window.removeEventListener('resize', updateSize)
+    }, [])
+    return size
+}
+
 moment.locale('ru')
 const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
     socket: SocketIO.Socket,
@@ -29,6 +42,8 @@ const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
     const clientsCount = React.useContext(ClientsContext)
     const messagesRef = React.useRef<HTMLDivElement>(null)
     const loveDiv = React.useRef<HTMLDivElement>(null)
+
+    const size = useWindowSize()
 
     const [userChat, setUserChat] = React.useState<IUserChat | null>(null)
     const [messages, setMessages] = React.useState<IMessage[] | []>([])
@@ -55,7 +70,6 @@ const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
             if (messages[messages.length - 1].userId === user?.id) {
                 messagesRef.current?.scrollBy(0, messagesRef.current?.scrollHeight)
             }
-            // setNotViewsMmessageCount(messages.filter(item => item.viewed === false && item.userId !== user?.id).length)
         }
     }, [messages])
 
@@ -102,7 +116,7 @@ const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
 
     React.useEffect(() => {
         messagesRef.current?.scrollBy(0, messagesRef.current?.scrollHeight)
-    }, [show])
+    }, [show, size])
 
     return (
         <>
@@ -126,7 +140,7 @@ const ChatInner = ({ socket, show, setShow, setNotViewsMmessageCount }: {
                     }
                 </div>
             </div>
-            <div ref={messagesRef} className='chat__wrapper--messages' style={{ height: window.innerHeight - 200 }}>
+            <div ref={messagesRef} className='chat__wrapper--messages' style={{ height: size[1] - 200 }}>
                 {messages.length > 0 ? messages.map(message =>
                     <Message
                         key={message.id}
