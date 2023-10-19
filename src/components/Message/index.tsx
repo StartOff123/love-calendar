@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer'
 
 import '../../styles/message.scss'
 
-const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMmessageCount }: IMessage & { setNotViewsMmessageCount: React.Dispatch<React.SetStateAction<number>>}): React.ReactElement => {
+const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMmessageCount }: IMessage & { setNotViewsMmessageCount: React.Dispatch<React.SetStateAction<number>> }): React.ReactElement => {
     moment.locale('ru')
     const user = React.useContext(UserContext)
     const [viewedMessage, setviewedMessage] = React.useState<boolean>(viewed)
@@ -57,7 +57,7 @@ const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMm
                 <p>{content}</p>
                 <span>{moment(createdAt).format('LT')}</span>
                 {user?.id === userId ?
-                    viewedMessage ? <CheckAll /> : <Check /> : ''
+                    viewedMessage ? <CheckAll width={20} hanging={20} /> : <Check width={20} hanging={20} /> : ''
                 }
             </div>
         </div>
