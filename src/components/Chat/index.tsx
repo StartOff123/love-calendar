@@ -23,7 +23,8 @@ const Chat = ({ socket }: { socket: SocketIO.Socket }): React.ReactElement => {
         <div className='chat'>
             <FloatButton
                 badge={{
-                    count: notViewsMmessageCount
+                    count: notViewsMmessageCount,
+                    color: 'rgb(255, 170, 196)'
                 }}
                 onClick={() => setShowChat(!showChat)}
                 icon={<CommentOutlined />}
@@ -33,7 +34,7 @@ const Chat = ({ socket }: { socket: SocketIO.Socket }): React.ReactElement => {
                 'chat__wrapper',
                 showChat ? 'chat__wrapper-show' : ''
             )}>
-                <ChatInner socket={socket} setShow={setShowChat} show={showChat} setNotViewsMmessageCount={setNotViewsMmessageCount}/>
+                <ChatInner socket={socket} setShow={setShowChat} show={showChat} setNotViewsMmessageCount={setNotViewsMmessageCount} notViewsMmessageCount={notViewsMmessageCount} />
             </div>
         </div>
     )

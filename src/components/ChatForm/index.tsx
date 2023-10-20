@@ -54,6 +54,7 @@ const ChatForm = ({ socket, messagesRef }: { socket: SocketIO.Socket, messagesRe
         theme='light'
         keepOpened
         inputClass='chatForm__input'
+        
       />
       <button type='submit' disabled={formik.values.message === ''} className='chatForm__btn'>
         <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 14 14" width="16">

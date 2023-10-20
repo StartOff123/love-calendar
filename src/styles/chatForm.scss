@@ -1,7 +1,9 @@
 .chatForm {
+    position: relative;
     padding: 5px;
     display: flex;
     background-color: rgb(255, 170, 196);
+    z-index: 100;
 
     &__input {
         background-color: rgb(255, 134, 170) !important;
@@ -65,5 +67,33 @@
 .react-input-emoji--button {
     svg {
         fill: #fff !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .react-emoji-picker--wrapper {
+        width: 300px !important;
+        right: -20px !important;
+    }
+
+    .react-emoji-picker {
+        width: 300px !important;
+
+        div {
+            width: 300px !important;
+
+            em-emoji-picker {
+                width: 300px !important;
+
+                element  {
+                    section {
+                        div {
+                            width: 300px !important;
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }

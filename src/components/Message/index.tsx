@@ -9,7 +9,9 @@ import { useInView } from 'react-intersection-observer'
 
 import '../../styles/message.scss'
 
-const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMmessageCount }: IMessage & { setNotViewsMmessageCount: React.Dispatch<React.SetStateAction<number>> }): React.ReactElement => {
+const Message = ({ id, content, createdAt, userId, socket, viewed, setNotViewsMmessageCount }:
+    IMessage & { setNotViewsMmessageCount: React.Dispatch<React.SetStateAction<number>> }
+): React.ReactElement => {
     moment.locale('ru')
     const user = React.useContext(UserContext)
     const [viewedMessage, setviewedMessage] = React.useState<boolean>(viewed)
